@@ -74,9 +74,9 @@ export default function RootLayout({ children }) {
         <div className="custom-cursor__cursor"></div>
         <div className="custom-cursor__cursor-two"></div>
 
-        <div className="preloader">
+        {/* <div className="preloader">
           <div className="preloader__image"></div>
-        </div>
+        </div> */}
         {/* <!-- /.preloader --> */}
 
         {children}

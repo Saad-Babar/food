@@ -1,7 +1,12 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Navbar() {
+    const [active, setActive] = useState("current"); // Ensure SSR consistency
+
     return (
         <header className="main-header">
             <nav className="main-menu">
@@ -9,12 +14,22 @@ function Navbar() {
                     <div className="main-menu__wrapper-inner">
                         <div className="main-menu__left">
                             <div className="main-menu__logo">
-                                <a href="index.html">
-                                    <Image src="/assets/images/resources/logo-1.png" alt="" fill/>
-                                </a>
+                                <Link href="/">
+                                    <Image
+                                        src="/assets/images/resources/logo-1.png"
+                                        alt="Logo"
+                                        width={150}
+                                        height={50}
+                                    />
+                                </Link>
                             </div>
                             <div className="main-menu__shape-1 float-bob-x">
-                                <Image src="/assets/images/shapes/main-menu-shape-1.png" alt="" fill/>
+                                <Image
+                                    src="/assets/images/shapes/main-menu-shape-1.png"
+                                    alt="Shape"
+                                    width={50}
+                                    height={50}
+                                />
                             </div>
                         </div>
                         <div className="main-menu__right">
@@ -22,12 +37,19 @@ function Navbar() {
                                 <div className="main-menu__right-top-left">
                                     <div className="main-menu__volunteers">
                                         <div className="main-menu__volunteers-icon">
-                                            <Image src="/assets/images/icon/main-menu-heart-icon.png" alt="" fill/>
+                                            <Image
+                                                src="/assets/images/icon/main-menu-heart-icon.png"
+                                                alt="Heart Icon"
+                                                width={30}
+                                                height={30}
+                                            />
                                         </div>
                                         <div className="main-menu__volunteers-text-box">
-                                            <p className="main-menu__volunteers-text"><a href="become-volunteer.html">Become
-                                                    a
-                                                    <span>volunteers</span></a></p>
+                                            <p className="main-menu__volunteers-text">
+                                                <Link href="/become-volunteer">
+                                                    Become a <span>volunteers</span>
+                                                </Link>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -49,8 +71,7 @@ function Navbar() {
                                                 </div>
                                                 <div className="content">
                                                     <p>Send email</p>
-                                                    <h5><a href="mailto:needhelp@company.com">needhelp@company.com</a>
-                                                    </h5>
+                                                    <h5><a href="mailto:needhelp@company.com">needhelp@company.com</a></h5>
                                                 </div>
                                             </li>
                                             <li>
@@ -74,85 +95,66 @@ function Navbar() {
                             </div>
                             <div className="main-menu__right-bottom">
                                 <div className="main-menu__main-menu-box">
-                                    <a href="#" className="mobile-nav__toggler"><i className="fa fa-bars"></i></a>
+                                    <Link href="#" className="mobile-nav__toggler">
+                                        <i className="fa fa-bars"></i>
+                                    </Link>
                                     <ul className="main-menu__list">
-                                        
-                                        <li className="dropdown">
-                                            <a href="#">Pages</a>
+                                        <li className={`dropdown${active ? ` ${active}` : ""}`}>
+                                            <Link href="/">Pages</Link>
                                             <ul>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="volunteer.html">Volunteer</a></li>
-                                                <li><a href="become-volunteer.html">Become volunteer</a></li>
-                                                <li><a href="volunteer-carousel.html">Volunteer carousel</a></li>
-                                                <li><a href="gallery.html">Gallery</a></li>
-                                                <li><a href="gallery-carousel.html">Gallery carousel</a></li>
-                                                <li><a href="faq.html">FAQs</a></li>
-                                                <li><a href="404.html">404 Error</a></li>
+                                                <li><Link href="/about">About</Link></li>
+                                                <li><Link href="/volunteer">Volunteer</Link></li>
+                                                <li><Link href="/become-volunteer">Become volunteer</Link></li>
+                                                <li><Link href="/gallery">Gallery</Link></li>
+                                                <li><Link href="/faq">FAQs</Link></li>
                                             </ul>
                                         </li>
-                                        <li className="dropdown">
-                                            <a href="#">Donations</a>
+                                        <li className={`dropdown${active ? ` ${active}` : ""}`}>
+                                            <Link href="/">Donations</Link>
                                             <ul>
-                                                <li><a href="donation.html">Donation</a></li>
-                                                <li><a href="donations-list.html">Donation list</a></li>
-                                                <li><a href="donation-carousel.html">Donation carousel</a></li>
-                                                <li><a href="donation-details.html">Donation details</a></li>
-                                                <li><a href="donate-now.html">Donate Now</a></li>
+                                                <li><Link href="/donation">Donation</Link></li>
+                                                <li><Link href="/donate-now">Donate Now</Link></li>
                                             </ul>
                                         </li>
-                                        <li className="dropdown">
-                                            <a href="#">Events</a>
+                                        <li className={`dropdown${active ? ` ${active}` : ""}`}>
+                                            <Link href="/">Events</Link>
                                             <ul>
-                                                <li><a href="events.html">Events</a></li>
-                                                <li><a href="events-carousel.html">Events carousel</a></li>
-                                                <li><a href="event-details.html">Event details</a></li>
+                                                <li><Link href="/events">Events</Link></li>
                                             </ul>
                                         </li>
-                                        <li className="dropdown">
-                                            <a href="#">News</a>
+                                        <li className={`dropdown${active ? ` ${active}` : ""}`}>
+                                            <Link href="/">News</Link>
                                             <ul>
-                                                <li><a href="news.html">News</a></li>
-                                                <li><a href="news-carousel.html">News carousel</a></li>
-                                                <li><a href="news-sidebar.html">News right sidebar</a></li>
-                                                <li><a href="news-sidebar-left.html">News left sidebar</a></li>
-                                                <li><a href="news-details.html">News details</a></li>
-                                                <li className="dropdown">
-                                                    <a href="#">News Grid</a>
-                                                    <ul className="sub-menu">
-                                                        <li><a href="blog-grid.html">No Sidebar</a></li>
-                                                        <li><a href="blog-grid-left.html">Left Sidebar</a></li>
-                                                        <li><a href="blog-grid-right.html">Right Sidebar</a></li>
-                                                    </ul>
-                                                </li>
+                                                <li><Link href="/events">News</Link></li>
                                             </ul>
                                         </li>
-                                        <li className="dropdown">
-                                            <a href="products.html">Shop</a>
+                                        <li className={`dropdown${active ? ` ${active}` : ""}`}>
+                                            <Link href="/">Shop</Link>
                                             <ul>
-                                                <li><a href="products.html">Shop</a></li>
-                                                <li><a href="product-details.html">Product details</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><Link href="/events">Shop</Link></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="contact.html">Contact</a>
+                                            <Link href="/contact">Contact</Link>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="main-menu__main-menu-content-box">
                                     <div className="main-menu__search-cat-btn-box">
                                         <div className="main-menu__search-box">
-                                            <a href="#"
-                                                className="main-menu__search search-toggler icon-magnifying-glass"></a>
+                                            <Link href="#" className="main-menu__search search-toggler">
+                                                <i className="icon-magnifying-glass"></i>
+                                            </Link>
                                         </div>
                                         <div className="main-menu__cat-box">
-                                            <a href="cart.html" className="main-menu__cart icon-shopping-cart"></a>
+                                            <Link href="/cart" className="main-menu__cart">
+                                                <i className="icon-shopping-cart"></i>
+                                            </Link>
                                         </div>
                                         <div className="main-menu__btn-box">
-                                            <a href="donate-now.html" className="main-menu__btn"> <span
-                                                    className="fa fa-heart"></span> Donate
-                                                now</a>
+                                            <Link href="/donate-now" className="main-menu__btn">
+                                                <span className="fa fa-heart"></span> Donate now
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +164,7 @@ function Navbar() {
                 </div>
             </nav>
         </header>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;
