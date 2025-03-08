@@ -7,8 +7,8 @@ function Pagewrapper () {
     return (
         <div className="page-wrapper">
             <Navbar></Navbar>
-            {/* <StickyHeader></StickyHeader> */}
-            {/* <MainSlider></MainSlider> */}
+            <StickyHeader></StickyHeader>
+            <MainSlider></MainSlider>
         </div>
     )
 }

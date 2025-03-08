@@ -1,35 +1,48 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
 import Image from "next/image";
+import Swiper from "swiper/bundle";
+import "swiper/css/bundle";
 
-function MainSlider () {
+
+function MainSlider() {
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            import("swiper").then(({ default: Swiper }) => {
+                new Swiper(".thm-swiper__slider", {
+                    slidesPerView: 1,
+                    loop: true,
+                    effect: "fade",
+                    pagination: {
+                        el: "#main-slider-pagination",
+                        type: "bullets",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: "#main-slider__swiper-button-next",
+                        prevEl: "#main-slider__swiper-button-prev",
+                    },
+                    autoplay: {
+                        delay: 5000,
+                    },
+                });
+            });
+        }
+    }, []);
+
     return (
         // <!--Main Slider Start-->
         <section className="main-slider clearfix">
-            <div className="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-                "effect": "fade",
-                "pagination": {
-                "el": "#main-slider-pagination",
-                "type": "bullets",
-                "clickable": true
-                },
-                "navigation": {
-                "nextEl": "#main-slider__swiper-button-next",
-                "prevEl": "#main-slider__swiper-button-prev"
-                },
-                "autoplay": {
-                "delay": 5000
-                }}'>
+            <div className="swiper-container thm-swiper__slider" id="main-slider">
                 <div className="swiper-wrapper">
 
                     <div className="swiper-slide">
-                        <div className="image-layer"
-                            style={{backgroundImage: "url(/assets/images/backgrounds/main-slider-1-1.png)"}}></div>
+                        <div className="image-layer" style={{ backgroundImage: "url(/assets/images/backgrounds/main-slider-1-1.png)" }}></div>
                         {/* <!-- /.image-layer --> */}
 
-                        <div className="main-slider-shape-1"
-                            style={{backgroundImage: "url(/assets/images/shapes/main-slider-shape-1.jpg)"}}></div>
+                        <div className="main-slider-shape-1" style={{ backgroundImage: "url(/assets/images/shapes/main-slider-shape-1.jpg)" }}></div>
                         <div className="main-slider-shape-2 float-bob-x">
-                            <Image src="/assets/images/shapes/main-slider-shape-2.png" alt="" fill/>
+                            <Image src="/assets/images/shapes/main-slider-shape-2.png" alt="" fill />
                         </div>
 
                         <div className="container">
@@ -48,14 +61,12 @@ function MainSlider () {
                     </div>
 
                     <div className="swiper-slide">
-                        <div className="image-layer"
-                            style={{backgroundImage: "url(/assets/images/backgrounds/main-slider-1-2.png)"}}></div>
+                        <div className="image-layer" style={{ backgroundImage: "url(/assets/images/backgrounds/main-slider-1-2.png)" }}></div>
                         {/* <!-- /.image-layer --> */}
 
-                        <div className="main-slider-shape-1"
-                            style={{backgroundImage: "url(/assets/images/shapes/main-slider-shape-1.jpg)"}}></div>
+                        <div className="main-slider-shape-1" style={{ backgroundImage: "url(/assets/images/shapes/main-slider-shape-1.jpg)" }}></div>
                         <div className="main-slider-shape-2 float-bob-x">
-                            <Image src="/assets/images/shapes/main-slider-shape-2.png" alt="" fill/>
+                            <Image src="/assets/images/shapes/main-slider-shape-2.png" alt="" fill />
                         </div>
 
                         <div className="container">
@@ -74,14 +85,12 @@ function MainSlider () {
                     </div>
 
                     <div className="swiper-slide">
-                        <div className="image-layer"
-                            style={{backgroundImage: "url(/assets/images/backgrounds/main-slider-1-3.png)"}}></div>
+                        <div className="image-layer" style={{ backgroundImage: "url(/assets/images/backgrounds/main-slider-1-3.png)" }}></div>
                         {/* <!-- /.image-layer --> */}
 
-                        <div className="main-slider-shape-1"
-                            style={{backgroundImage: "url(/assets/images/shapes/main-slider-shape-1.jpg)"}}></div>
+                        <div className="main-slider-shape-1" style={{ backgroundImage: "url(/assets/images/shapes/main-slider-shape-1.jpg)" }}></div>
                         <div className="main-slider-shape-2 float-bob-x">
-                            <Image src="/assets/images/shapes/main-slider-shape-2.png" alt="" fill/>
+                            <Image src="/assets/images/shapes/main-slider-shape-2.png" alt="" fill />
                         </div>
 
                         <div className="container">
@@ -114,7 +123,7 @@ function MainSlider () {
             </div>
         </section>
         // {/* <!--Main Slider End--> */}
-    )
+    );
 }
 
-export default MainSlider
+export default MainSlider;

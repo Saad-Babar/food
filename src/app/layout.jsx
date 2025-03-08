@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Preloader from "@/components/Preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,6 +74,8 @@ export default function RootLayout({ children }) {
 
         <div className="custom-cursor__cursor"></div>
         <div className="custom-cursor__cursor-two"></div>
+
+        {/* <Preloader></Preloader> */}
 
         {/* <div className="preloader">
           <div className="preloader__image"></div>
