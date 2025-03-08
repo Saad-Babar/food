@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import StickyHeader from "./StickyHeader";
 import MainSlider from "./MainSlider";
+import About from "./About";
 
 function Pagewrapper () {
     return (
@@ -9,6 +10,7 @@ function Pagewrapper () {
             <Navbar></Navbar>
             <StickyHeader></StickyHeader>
             <MainSlider></MainSlider>
+            <About></About>
         </div>
     )
 }

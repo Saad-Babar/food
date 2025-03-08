@@ -40,8 +40,8 @@ function Navbar() {
                                             <Image
                                                 src="/assets/images/icon/main-menu-heart-icon.png"
                                                 alt="Heart Icon"
-                                                width={30}
-                                                height={30}
+                                                width={22}
+                                                height={22}
                                             />
                                         </div>
                                         <div className="main-menu__volunteers-text-box">
